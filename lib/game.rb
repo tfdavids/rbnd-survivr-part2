@@ -2,6 +2,7 @@ require_relative 'tribe'
 
 class Game
   attr_reader :tribes
+  @merge_tribe
 
   def initialize(tribe1, tribe2)
     @tribes = [tribe1, tribe2]
@@ -12,7 +13,9 @@ class Game
   end
 
   def immunity_challenge
-    @tribes.sample
+    loser = @tribes.sample
+    loser.members.delete(loser.members.sample)
+    loser
   end
 
   def clear_tribes
@@ -22,10 +25,10 @@ class Game
   def merge(new_tribe)
     members = []
     @tribes.each {|tribe| members += tribe.members}
-    Tribe.new(name: new_tribe, members: members)
+    @merge_tribe = Tribe.new(name: new_tribe, members: members)
   end
 
   def individual_immunity_challenge
-    return @tribes.sample.members.sample
+    @merge_tribe.members.delete(@merge_tribe.members.sample)
   end
 end
