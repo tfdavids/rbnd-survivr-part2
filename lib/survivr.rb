@@ -39,7 +39,11 @@ end
 
 def phase_three
   while @jury.members.length < 7 do
-    @jury.add_member(@merge_tribe.tribal_council(immune: @merge_tribe.members.sample))
+    immune = @merge_tribe.members.sample
+    puts "#{immune} wins a round and is immune"
+    voted_off = @merge_tribe.tribal_council(immune: immune)
+    puts "#{voted_off} is voted off and joins the jury"
+    @jury.add_member(voted_off)
   end
   @jury.members.length
 end

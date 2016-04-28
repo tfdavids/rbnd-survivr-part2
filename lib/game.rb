@@ -14,7 +14,10 @@ class Game
 
   def immunity_challenge
     loser = @tribes.sample
-    loser.members.delete(loser.members.sample)
+    puts "Tribe #{loser} loses a round"
+    voted_off = loser.members.sample
+    loser.members.delete(voted_off)
+    puts "#{voted_off} is voted off"
     loser
   end
 
@@ -29,6 +32,9 @@ class Game
   end
 
   def individual_immunity_challenge
-    @merge_tribe.members.delete(@merge_tribe.members.sample)
+    immune = @merge_tribe.members.sample
+    puts "#{immune} wins a round and is immune"
+    voted_off = @merge_tribe.tribal_council(immune: immune)
+    puts "#{voted_off} is voted off"
   end
 end
