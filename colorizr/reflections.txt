@@ -1,0 +1,12 @@
+My gem takes advantage of Ruby's metaprogramming by automatically creating the
+colorizr methods from the list of colors. It also uses metaprogramming to print
+out the list of colors as an example.
+
+I spent about an hour working on this project.
+
+The most rewarding challenge was figuring out how to use metaprogramming to not
+have to write all of the methods out.
+
+I still have room to grow in understanding exactly what's going on under the
+hood in metaprogramming, but I'm sure I'll understand more as I keep working
+through projects.
