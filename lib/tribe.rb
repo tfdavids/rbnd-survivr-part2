@@ -15,10 +15,9 @@ class Tribe
   end
 
   def tribal_council(options)
-    immune = options[:immune]
-    @members.shuffle!
-    member = @members[0] == immune ? @members[1] : @members[0]
-    @members.delete(member)
-    member
+    members_except_immune = @members.reject{|member| member == options[:immune]}
+    eliminated_member = members_except_immune.sample
+    @members.delete(eliminated_member)
+    eliminated_member
   end
 end
