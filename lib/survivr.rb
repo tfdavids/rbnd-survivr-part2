@@ -20,21 +20,15 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
-  num_eliminations = 0
-  while num_eliminations < 8 do
+  8.times do
     @borneo.immunity_challenge
-    num_eliminations += 1
   end
-  num_eliminations
 end
 
 def phase_two
-  num_eliminations = 0
-  while num_eliminations < 3 do
+  3.times do
     @borneo.individual_immunity_challenge
-    num_eliminations += 1
   end
-  num_eliminations
 end
 
 def phase_three

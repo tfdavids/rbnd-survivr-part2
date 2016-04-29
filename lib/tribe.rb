@@ -1,18 +1,17 @@
 require 'colorizr'
 
 class Tribe
-  attr_reader :name, :members
-  @color
+  attr_reader :name, :members, :color
 
   def initialize(options)
-    @name = options[:name] || ""
-    @members = options[:members] || []
     @color = String.colors.sample
+    @name = options[:name].send(@color) || ""
+    @members = options[:members] || []
     puts "Created tribe #{self}"
   end
 
   def to_s
-    @name.send(@color)
+    @name
   end
 
   def tribal_council(options)

@@ -10,16 +10,16 @@ class Jury
   end
 
   def cast_votes(finalists)
-    h = Hash.new
+    votes = Hash.new
     finalists.each do |finalist|
-      h[finalist] = 0
+      votes[finalist] = 0
     end
     @members.each do |member|
       vote = finalists.sample
       puts "#{member} votes for #{vote}"
-      h[vote] += 1
+      votes[vote] += 1
     end
-    h
+    votes
   end
 
   def report_votes(votes)
